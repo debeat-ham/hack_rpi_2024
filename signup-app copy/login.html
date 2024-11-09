@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Whispered Words</title>
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+    <div class="login-container">
+        <h1>Login</h1>
+        <form id="loginForm" onsubmit="handleLogin(event)">
+            <label for="username">Username</label>
+            <input type="text" id="username" required>
+
+            <label for="password">Password</label>
+            <input type="password" id="password" required>
+
+            <button type="submit">Login</button>
+        </form>
+    </div>
+
+    <script>
+        function handleLogin(event) {
+            event.preventDefault();
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            // Get user data from localStorage
+            const userData = JSON.parse(localStorage.getItem('userData'));
+
+            if (userData && userData.username === username && userData.password === password) {
+                alert('Login successful!');
+                window.location.href = '../homepage.html'; // Redirect to homepage after successful login
+            } else {
+                alert('Login failed. Please check your credentials.');
+            }
+        }
+    </script>
+</body>
+</html>

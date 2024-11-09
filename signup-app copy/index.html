@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - Whispered Words</title>
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+    <div class="signup-container">
+        <h1>Sign Up</h1>
+        <form id="signupForm" class="signup-form" onsubmit="handleSignup(event)">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="gmail">Email</label>
+            <input type="email" id="gmail" name="gmail" required>
+
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" required>
+
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required>
+
+            <label for="niche">Select Niche</label>
+            <select id="niche" name="niche" required>
+                <option value="" disabled selected>Select your niche</option>
+                <option value="technology">Technology</option>
+                <option value="health">Health</option>
+                <option value="lifestyle">Lifestyle</option>
+                <option value="finance">Finance</option>
+            </select>
+
+            <button type="submit" class="btn btn-primary">Sign Up</button>
+        </form>
+    </div>
+
+    <script>
+        function handleSignup(event) {
+            event.preventDefault(); // Prevent the form from submitting
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('gmail').value;
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const niche = document.getElementById('niche').value;
+
+            // Save user data to localStorage
+            const userData = { name, email, username, password, niche };
+            localStorage.setItem('userData', JSON.stringify(userData));
+
+            // Redirect to community selection page
+            window.location.href = 'community_selection.html';
+        }
+    </script>
+</body>
+</html>
