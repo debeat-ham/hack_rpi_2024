@@ -15,9 +15,12 @@
             <button type="submit" class="btn-primary">Get Coordinates</button>
         </form>
         <div id="output" class="output"></div>
+        <button id="downloadBtn" style="display:none" onclick="downloadFile()">Download Coordinates</button>
     </div>
 
     <script>
+        let coordinatesData = ''; // To store the coordinates data
+
         async function convertAddress(event) {
             event.preventDefault();
             const address = document.getElementById('address').value;
@@ -29,11 +32,15 @@
 
                 if (data.status === "OK" && data.results.length > 0) {
                     const { lat, lng } = data.results[0].geometry.location;
+                    coordinatesData = `Address: ${address}\nLatitude: ${lat}\nLongitude: ${lng}`;
                     document.getElementById('output').innerHTML = `
                         <p>Coordinates:</p>
                         <p><strong>Latitude:</strong> ${lat}</p>
                         <p><strong>Longitude:</strong> ${lng}</p>
                     `;
+
+                    // Show the download button
+                    document.getElementById('downloadBtn').style.display = 'block';
                 } else {
                     document.getElementById('output').innerHTML = "<p style='color: red;'>Coordinates not found. Please check the address.</p>";
                 }
@@ -41,6 +48,18 @@
                 document.getElementById('output').innerHTML = "<p style='color: red;'>There was an error processing your request.</p>";
                 console.error("Error:", error);
             }
+        }
+
+        // Function to download coordinates data as a .txt file
+        function downloadFile() {
+            const blob = new Blob([coordinatesData], { type: 'text/plain' });
+            const url = URL.createObjectURL(blob);
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = 'coordinates.txt'; // Name of the file
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
         }
     </script>
 </body>
