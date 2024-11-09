@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign Up - Whispered Words</title>
+    <title>Sign Up</title>
     <link rel="stylesheet" href="styles/main.css">
 </head>
 <body>
@@ -22,14 +22,8 @@
             <label for="password">Password</label>
             <input type="password" id="password" name="password" required>
 
-            <label for="niche">Select Niche</label>
-            <select id="niche" name="niche" required>
-                <option value="" disabled selected>Select your niche</option>
-                <option value="technology">Technology</option>
-                <option value="health">Health</option>
-                <option value="lifestyle">Lifestyle</option>
-                <option value="finance">Finance</option>
-            </select>
+            <label for="confirm-password">Confirm Password</label>
+            <input type="password" id="confirm-password" name="confirm-password" required>
 
             <button type="submit" class="btn btn-primary">Sign Up</button>
         </form>
@@ -42,14 +36,20 @@
             const email = document.getElementById('gmail').value;
             const username = document.getElementById('username').value;
             const password = document.getElementById('password').value;
-            const niche = document.getElementById('niche').value;
+            const confirmPassword = document.getElementById('confirm-password').value;
+
+            // Check if passwords match
+            if (password !== confirmPassword) {
+                alert('Passwords do not match. Please try again.');
+                return;
+            }
 
             // Save user data to localStorage
-            const userData = { name, email, username, password, niche };
+            const userData = { name, email, username, password };
             localStorage.setItem('userData', JSON.stringify(userData));
 
-            // Redirect to community selection page
-            window.location.href = 'community_selection.html';
+            // Redirect to About page
+            window.location.href = 'About.html';
         }
     </script>
 </body>
