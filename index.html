@@ -1,56 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>User Post Page</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spot - Welcome</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<h1>Post Information</h1>
-<form id="postForm">
-	<label for="postContent">Enter your post:</label><br>
-	<textarea id="postContent" name="postContent" rows="4" cols="50"></textarea><br><br>
-	<button type="submit">Post</button>
-</form>
-
-<h2>Posts</h2>
-<div id="postList"></div>
-
-<script>
-	document.getElementById('postForm').onsubmit = async function(event) {
-		event.preventDefault();
-		const postContent = document.getElementById('postContent').value;
-
-		// Sending data to the backend
-		const response = await fetch('post.php', {
-			method: 'POST',
-			headers: {
-				'Content-Type': 'application/json'
-			},
-			body: JSON.stringify({ content: postContent })
-		});
-
-		// Reload posts after a successful post
-		if (response.ok) {
-			loadPosts();
-			document.getElementById('postContent').value = '';
-		}
-	};
-
-	async function loadPosts() {
-		const response = await fetch('post.php');
-		const posts = await response.json();
-		const postList = document.getElementById('postList');
-		postList.innerHTML = '';
-		posts.forEach(post => {
-			const postElement = document.createElement('div');
-			postElement.innerText = post.content;
-			postList.appendChild(postElement);
-		});
-	}
-
-	// Load posts when the page loads
-	window.onload = loadPosts;
-</script>
+  <div class="landing-page">
+    <div class="overlay"></div>
+    <div class="content">
+      <div class="logo">Spot</div>
+      <nav class="nav-links">
+        <a href="about.html">About</a>
+        <a href="signin.html">Sign In</a>
+      </nav>
+    </div>
+  </div>
 </body>
 </html>
