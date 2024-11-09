@@ -1,6 +1,8 @@
 # hack_rpi_2024
 Project for HackRPI 2024 competition
 
+Project Name:
+Data Source: https://nycopendata.socrata.com/w/5bhr-pjxt/25te-f2tw?cur=_W5UT2uwPYu&from=5A1b5dAfjwW
 Idea: Parking Garage Capacity Website
 Uses: 
     - Help city residents find places to park.

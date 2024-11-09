@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Service</title>
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+    <div class="terms-container">
+        <h1>Terms of Service</h1>
+        <p>By using this website, you agree to share your location information to improve your experience. We may use your location to provide relevant content and services based on your geographical data.</p>
+        <p>We respect your privacy. Your location information will not be shared with third parties without your consent. You can revoke this permission at any time from your settings.</p>
+
+        <div class="terms-buttons">
+            <button id="agreeButton" class="btn btn-primary">I Agree</button>
+            <button id="disagreeButton" class="btn btn-danger">I Disagree</button>
+        </div>
+    </div>
+
+    <script>
+        // Function to handle location permission
+        document.getElementById('agreeButton').addEventListener('click', function() {
+            // Store location permission in localStorage
+            localStorage.setItem('locationPermission', 'granted');
+            // Redirect to the login page or homepage
+            window.location.href = 'login.html';
+        });
+
+        document.getElementById('disagreeButton').addEventListener('click', function() {
+            // Store location permission as denied
+            localStorage.setItem('locationPermission', 'denied');
+            // Redirect to the login page or a different page
+            alert("You must agree to share your location to use this service.");
+            window.location.href = 'login.html'; // or choose a different redirection
+        });
+    </script>
+</body>
+</html>
