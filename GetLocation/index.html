@@ -32,11 +32,13 @@
 
                 if (data.status === "OK" && data.results.length > 0) {
                     const { lat, lng } = data.results[0].geometry.location;
+                    const distanceFromNYC = distance(lat, lng, 40.712728, -74.006015).toPrecision(2);;
                     coordinatesData = `Address: ${address}\nLatitude: ${lat}\nLongitude: ${lng}`;
                     document.getElementById('output').innerHTML = `
                         <p>Coordinates:</p>
                         <p><strong>Latitude:</strong> ${lat}</p>
                         <p><strong>Longitude:</strong> ${lng}</p>
+                        <p><strong>Distance From NYC:</strong> ${distanceFromNYC} miles </p>
                     `;
 
                     // Show the download button
@@ -60,6 +62,42 @@
             document.body.appendChild(link);
             link.click();
             document.body.removeChild(link);
+        }
+    </script>
+    <script>
+        function distance(lat1, lon1, lat2, lon2) {
+            //Comparing same point
+            if (lat1 === lat2 && lon1 === lon2) {
+                return 0;
+            } 
+
+            //Implement Haversine Formula
+            else {
+                const radlat1 = Math.PI * lat1 / 180;
+                const radlat2 = Math.PI * lat2 / 180;
+
+                const theta = lon1 - lon2;
+
+                const radtheta = Math.PI * theta / 180;
+                let dist = Math.sin(radlat1) * Math.sin(radlat2) + Math.cos(radlat1) * Math.cos(radlat2) * Math.cos(radtheta);
+                if (dist > 1) {
+                dist = 1;
+                }
+                dist = Math.acos(dist);
+                dist = dist * 180 / Math.PI;
+                dist = dist * 60 * 1.1515; // Convert to miles
+
+                console.log(dist);
+                return dist;
+            }
+        
+        }
+
+    </script>
+
+    <script>
+        function findClosest(lat, lon){
+            
         }
     </script>
 </body>
