@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Address to Coordinates</title>
     <link rel="stylesheet" href="styles/main.css">
+    <script src="data.js"></script>
 </head>
 
 <body>
@@ -72,81 +73,15 @@
 
     <script>
         function findClosest(lat, lon) {
-            var arr = [
-                {
-                    "BBL": "",
-                    "BIN": "",
-                    "Borough": "Bronx",
-                    "Building Number": 763,
-                    "Business Name": "GMH PARK INC",
-                    "Census Tract (2010)": "",
-                    "City": "BRONX",
-                    "Community Board": "",
-                    "Contact Phone": 9172140583,
-                    "Council District": "",
-                    "Details": "Vehicle Capacity: 94; Bicycle Capacity: 9",
-                    "Expiration Date": "3/31/2025",
-                    "Latitude": "",
-                    "License Number": "2109749-DCA",
-                    "License Type": "Premises",
-                    "Longitude": "",
-                    "State": "NY",
-                    "Street1": "CONCOURSE VLG",
-                    "Street2": "",
-                    "ZIP Code": 10451
-                },
-                {
-                    "BBL": 2031757501,
-                    "BIN": 2130480,
-                    "Borough": "Bronx",
-                    "Building Number": 2519,
-                    "Business Name": "MP CRESTON LLC",
-                    "Census Tract (2010)": 401,
-                    "City": "BRONX",
-                    "Community Board": 207,
-                    "Contact Phone": "",
-                    "Council District": 14,
-                    "Details": "Vehicle Capacity: 66; Bicycle Capacity: 7",
-                    "Expiration Date": "11/21/2024",
-                    "Latitude": 40.8634,
-                    "License Number": "2117070-DCWP",
-                    "License Type": "Premises",
-                    "Longitude": -73.897679,
-                    "State": "NY",
-                    "Street1": "CRESTON AVE",
-                    "Street2": "",
-                    "ZIP Code": 10468
-                },
-                {
-                    "BBL": "",
-                    "BIN": "",
-                    "Borough": "Bronx",
-                    "Building Number": 99,
-                    "Business Name": "RIVERBAY CORPORATION",
-                    "Census Tract (2010)": "",
-                    "City": "BRONX",
-                    "Community Board": "",
-                    "Contact Phone": 7183203391,
-                    "Council District": "",
-                    "Details": "Vehicle Capacity: 1361; Bicycle Capacity: 31",
-                    "Expiration Date": "3/31/2025",
-                    "Latitude": "",
-                    "License Number": "0695802-DCA",
-                    "License Type": "Premises",
-                    "Longitude": "",
-                    "State": "NY",
-                    "Street1": "ERSKINE PLACE",
-                    "Street2": "",
-                    "ZIP Code": 10475
-                }
-            ];
-
+            var arr = data;
+            var count = 0;
             var minDistance = Infinity; // Set to a large value initially
             var closestGarage = null; // Store closest business info
 
             // Loop through each object in the database
             for (var i = 0; i < arr.length; ++i) {
                 //Loop through the data for that specific object
+                ++count;
                 var obj = arr[i];
 
                 // Check if the object has valid latitude and longitude
@@ -172,6 +107,7 @@
                 console.log("Closest business name: " + closestGarageName);
                 console.log("Address: " + address);
                 console.log("Distance: " + minDistance + " miles");
+                console.log("Count: " + count);
                 return {closestGarageName, address, minDistance: minDistance.toFixed(2)};
             } else {
                 console.log("No valid garages found nearby.");
