@@ -167,6 +167,26 @@
                 });
         }
 
+        function getDirections(parkingLat, parkingLng) {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(position => {
+                    const userLat = position.coords.latitude;
+                    const userLng = position.coords.longitude;
+                    const directionsUrl = `https://www.google.com/maps/dir/?api=1&origin=${userLat},${userLng}&destination=${parkingLat},${parkingLng}`;
+                    window.open(directionsUrl, '_blank');
+                }, () => {
+                    alert("Geolocation is not supported or permission denied.");
+                });
+            } else {
+                alert("Geolocation is not supported by this browser.");
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', showTop5Parking);
+
+
+        
+
         // Fetch and filter parking data
         function filterParking() {
             const address = document.getElementById("search-bar").value;
