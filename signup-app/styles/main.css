@@ -1,14 +1,14 @@
 :root {
-  --color-white: hsl(252, 30%, 100%);
-  --color-light: hsl(252, 30%, 95%);
-  --color-gray: hsl(252, 15%, 65%);
-  --color-primary: hsl(252, 75%, 60%);
-  --color-primary-dark: hsl(252, 75%, 50%);
-  --color-secondary: hsl(252, 100%, 90%);
-  --color-success: hsl(120, 95%, 65%);
-  --color-danger: hsl(0, 95%, 65%);
-  --color-dark: hsl(252, 30%, 17%);
-  --color-black: hsl(252, 30%, 10%);
+  --color-white: #f9f7f3; /* Cream white */
+  --color-light: #fff0e1; /* Very light cream */
+  --color-gray: #dcdcdc; /* Soft gray for borders */
+  --color-primary: #ff7f50; /* Soft orange */
+  --color-primary-dark: #ff6347; /* Darker orange */
+  --color-secondary: #ffebcc; /* Light orange for secondary elements */
+  --color-success: #28a745; /* Green for success */
+  --color-danger: #dc3545; /* Red for danger */
+  --color-dark: #333333; /* Dark text */
+  --color-black: #111111; /* Black for deep contrasts */
   --border-radius: 2rem;
   --card-border-radius: 1rem;
   --btn-padding: 0.6rem 2rem;

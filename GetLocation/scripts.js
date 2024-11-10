@@ -30,20 +30,26 @@ function findClosest(userLat, userLng) {
         ++count
         var garageAddress = garageData[i]["Building Number"] + " " + garageData[i].Street1 + " " + garageData[i].City + " " + garageData[i].State + " " + garageData[i]["ZIP Code"];
         var garageName = garageData[i]["Business Name"];
-        var garageCapacity = (garageData[i].Details.split(' '))[2].slice(0, -1);
+        var detailsArray = garageData[i].Details.split(' '); //Split the "Details" line into an array
+
+        var garageCapacity = detailsArray[0]; //First half of "Details" up to the space
+        var garageCost = detailsArray[2]; //Second half of "Details"
+        garageCost = garageCost.substring(1, garageCost.search('/')); //Turn the garage cost into an actual number for comparison by isolating it
+        
         var garageDistanceFromUser = calculateDistance(userLat, userLng, garageLat, garageLng);
 
         currentGarage  = new ParkingGarage(garageLat, garageLng);
         currentGarage.address = garageAddress;
         currentGarage.name = garageName;
-        currentGarage.distanceFromUser = garageDistanceFromUser.toFixed(2);
+        currentGarage.distanceFromUser = garageDistanceFromUser.toFixed(2); //Round the distance
         currentGarage.capacity = garageCapacity;
+        currentGarage.cost = garageCost;
 
-        console.log("Closest Garage Name: " + currentGarage.name);
+        console.log("Closest Garage Name: " + currentGarage.name); 
         console.log("Address: " + currentGarage.address);
         console.log("Distance: " + currentGarage.distanceFromUser + " miles");
         console.log("Capacity: " + currentGarage.capacity + " spaces");
-        console.log("Cost: $" + currentGarage.price )
+        console.log("Cost: $" + currentGarage.cost + " per hour")
         closest_five.push(currentGarage);
     }
 

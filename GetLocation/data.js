@@ -1,5 +1,5 @@
 data = [
-    {
+  {
       "License Number": "2109749-DCA",
       "License Type": "Premises",
       "Expiration Date": "3/31/2025",
@@ -12,7 +12,7 @@ data = [
       "ZIP Code": 10451,
       "Contact Phone": 9172140583,
       "Borough": "Bronx",
-      "Details": "Vehicle Capacity: 94; Bicycle Capacity: 9",
+      "Details": "94 Spots, $10/hr",
       "Community Board": "",
       "Council District": "",
       "BIN": "",
@@ -20,8 +20,8 @@ data = [
       "Census Tract (2010)": "",
       "Latitude": "",
       "Longitude": ""
-    },
-    {
+  },
+  {
       "License Number": "2117070-DCWP",
       "License Type": "Premises",
       "Expiration Date": "11/21/2024",
@@ -34,7 +34,7 @@ data = [
       "ZIP Code": 10468,
       "Contact Phone": "",
       "Borough": "Bronx",
-      "Details": "Vehicle Capacity: 66; Bicycle Capacity: 7",
+      "Details": "66 Spots, $5/hr",
       "Community Board": 207,
       "Council District": 14,
       "BIN": 2130480,
@@ -42,8 +42,8 @@ data = [
       "Census Tract (2010)": 401,
       "Latitude": 40.8634,
       "Longitude": -73.897679
-    },
-    {
+  },
+  {
       "License Number": "0695802-DCA",
       "License Type": "Premises",
       "Expiration Date": "3/31/2025",
@@ -56,7 +56,7 @@ data = [
       "ZIP Code": 10475,
       "Contact Phone": 7183203391,
       "Borough": "Bronx",
-      "Details": "Vehicle Capacity: 1361; Bicycle Capacity: 31",
+      "Details": "13 Spots, $6/hr",
       "Community Board": "",
       "Council District": "",
       "BIN": "",
@@ -64,8 +64,8 @@ data = [
       "Census Tract (2010)": "",
       "Latitude": "",
       "Longitude": ""
-    },
-    {
+  },
+  {
       "License Number": "2117594-DCWP",
       "License Type": "Premises",
       "Expiration Date": "5/7/2024",
@@ -78,7 +78,7 @@ data = [
       "ZIP Code": 10453,
       "Contact Phone": 7187162434,
       "Borough": "Bronx",
-      "Details": "Vehicle Capacity: 40; Bicycle Capacity: 57",
+      "Details": "40 Spots, $8/hr",
       "Community Board": 205,
       "Council District": 14,
       "BIN": 2128390,
@@ -86,8 +86,8 @@ data = [
       "Census Tract (2010)": 23501,
       "Latitude": 40.85209,
       "Longitude": -73.905403
-    },
-    {
+  },
+  {
       "License Number": "2096487-DCA",
       "License Type": "Premises",
       "Expiration Date": "3/6/2023",
@@ -100,7 +100,7 @@ data = [
       "ZIP Code": 10468,
       "Contact Phone": 2124903460,
       "Borough": "Bronx",
-      "Details": "Vehicle Capacity: 66; Bicycle Capacity: 7",
+      "Details": "66 Spots, $9/hr",
       "Community Board": 207,
       "Council District": 14,
       "BIN": 2130480,
@@ -108,8 +108,8 @@ data = [
       "Census Tract (2010)": 401,
       "Latitude": 40.8634,
       "Longitude": -73.897679
-    },
-    {
+  },
+  {
       "License Number": "1313881-DCA",
       "License Type": "Premises",
       "Expiration Date": "3/31/2023",
@@ -122,7 +122,7 @@ data = [
       "ZIP Code": 10455,
       "Contact Phone": 9175674884,
       "Borough": "Bronx",
-      "Details": "Vehicle Capacity: 31; Bicycle Capacity: 0",
+      "Details": "31 Spots, $7/hr",
       "Community Board": 201,
       "Council District": 8,
       "BIN": 2000506,
@@ -130,8 +130,8 @@ data = [
       "Census Tract (2010)": 43,
       "Latitude": 40.81434,
       "Longitude": -73.917762
-    },
-    {
+  },
+  {
       "License Number": "2105591-DCA",
       "License Type": "Premises",
       "Expiration Date": "1/31/2023",
@@ -144,7 +144,7 @@ data = [
       "ZIP Code": 10451,
       "Contact Phone": 7186180276,
       "Borough": "Bronx",
-      "Details": "Vehicle Capacity: 68; Bicycle Capacity: 7",
+      "Details": "68 Spots, $11/hr",
       "Community Board": 201,
       "Council District": 8,
       "BIN": 2127296,
@@ -152,8 +152,8 @@ data = [
       "Census Tract (2010)": 51,
       "Latitude": 40.81481,
       "Longitude": -73.925145
-    },
-    {
+  },
+  {
       "License Number": "2075038-DCA",
       "License Type": "Premises",
       "Expiration Date": "3/31/2023",
@@ -166,7 +166,7 @@ data = [
       "ZIP Code": 10453,
       "Contact Phone": 9172153295,
       "Borough": "Bronx",
-      "Details": "Vehicle Capacity: 125; Bicycle Capacity: 13",
+      "Details": "12 Spots, $11/hr",
       "Community Board": 205,
       "Council District": 14,
       "BIN": 2129342,
@@ -174,8 +174,8 @@ data = [
       "Census Tract (2010)": 21501,
       "Latitude": 40.8503,
       "Longitude": -73.917327
-    },
-    {
+  },
+  {
       "License Number": "2065563-DCA",
       "License Type": "Premises",
       "Expiration Date": "12/2/2024",
@@ -188,7 +188,7 @@ data = [
       "ZIP Code": 10475,
       "Contact Phone": 8009441424,
       "Borough": "Bronx",
-      "Details": "Vehicle Capacity: 998; Bicycle Capacity: 28",
+      "Details": "99 Spots, $10/hr",
       "Community Board": 210,
       "Council District": 12,
       "BIN": 2119958,
@@ -196,8 +196,8 @@ data = [
       "Census Tract (2010)": 46201,
       "Latitude": 40.86449,
       "Longitude": -73.829741
-    },
-    {
+  },
+  {
       "License Number": "1340629-DCA",
       "License Type": "Premises",
       "Expiration Date": "3/31/2023",
@@ -210,7 +210,7 @@ data = [
       "ZIP Code": 10453,
       "Contact Phone": 3473867616,
       "Borough": "Bronx",
-      "Details": "",
+      "Details": "42 Spots, $10/hr",
       "Community Board": 205,
       "Council District": 14,
       "BIN": 2000000,
@@ -218,8 +218,8 @@ data = [
       "Census Tract (2010)": 243,
       "Latitude": 40.85123,
       "Longitude": -73.913306
-    },
-    {
+  },
+  {
       "License Number": "2116584-DCWP",
       "License Type": "Premises",
       "Expiration Date": "12/17/2024",
@@ -232,7 +232,7 @@ data = [
       "ZIP Code": 10451,
       "Contact Phone": 2124903460,
       "Borough": "Bronx",
-      "Details": "Vehicle Capacity: 61; Bicycle Capacity: 6",
+      "Details": "61 Spots, 11$/hr",
       "Community Board": "",
       "Council District": "",
       "BIN": "",
@@ -240,8 +240,8 @@ data = [
       "Census Tract (2010)": "",
       "Latitude": "",
       "Longitude": ""
-    },
-    {
+  },
+  {
       "License Number": "2014575-DCA",
       "License Type": "Premises",
       "Expiration Date": "3/31/2023",
@@ -254,7 +254,7 @@ data = [
       "ZIP Code": 10472,
       "Contact Phone": "",
       "Borough": "Bronx",
-      "Details": "",
+      "Details": "38 Spots, $5/hr",
       "Community Board": 209,
       "Council District": 17,
       "BIN": 2094907,
@@ -262,8 +262,8 @@ data = [
       "Census Tract (2010)": 56,
       "Latitude": 40.83436,
       "Longitude": -73.879092
-    },
-    {
+  },
+  {
       "License Number": "2011687-DCA",
       "License Type": "Premises",
       "Expiration Date": "3/31/2023",
@@ -276,7 +276,7 @@ data = [
       "ZIP Code": 10458,
       "Contact Phone": 7189333200,
       "Borough": "Bronx",
-      "Details": "Vehicle Capacity: 45; Bicycle Capacity: 0",
+      "Details": "45 Spots, $7/hr",
       "Community Board": 206,
       "Council District": 15,
       "BIN": 2000000,
@@ -284,8 +284,8 @@ data = [
       "Census Tract (2010)": 389,
       "Latitude": 40.8563,
       "Longitude": -73.882435
-    },
-    {
+  },
+  {
       "License Number": "2022107-DCA",
       "License Type": "Premises",
       "Expiration Date": "3/31/2023",
@@ -298,7 +298,7 @@ data = [
       "ZIP Code": 10454,
       "Contact Phone": "347-884-2948",
       "Borough": "Bronx",
-      "Details": "",
+      "Details": "29 Spots, $7/hr",
       "Community Board": 201,
       "Council District": 8,
       "BIN": 2000000,
@@ -306,8 +306,8 @@ data = [
       "Census Tract (2010)": 39,
       "Latitude": 40.8095,
       "Longitude": -73.9238
-    },
-    {
+  },
+  {
       "License Number": "2082929-DCA",
       "License Type": "Premises",
       "Expiration Date": "3/31/2023",
@@ -320,7 +320,7 @@ data = [
       "ZIP Code": 10453,
       "Contact Phone": "347-513-6083",
       "Borough": "Bronx",
-      "Details": "",
+      "Details": "52 Spots, $10/hr",
       "Community Board": 205,
       "Council District": 14,
       "BIN": 2128676,
@@ -328,8 +328,8 @@ data = [
       "Census Tract (2010)": 243,
       "Latitude": 40.85234,
       "Longitude": -73.908718
-    },
-    {
+  },
+  {
       "License Number": "1445334-DCA",
       "License Type": "Premises",
       "Expiration Date": "3/31/2025",
@@ -342,7 +342,7 @@ data = [
       "ZIP Code": 10474,
       "Contact Phone": 9177312200,
       "Borough": "Bronx",
-      "Details": "",
+      "Details": "73 Spots, $12/hr",
       "Community Board": 202,
       "Council District": 17,
       "BIN": 2005879,
@@ -350,8 +350,8 @@ data = [
       "Census Tract (2010)": 93,
       "Latitude": 40.81823,
       "Longitude": -73.890913
-    },
-    {
+  },
+  {
       "License Number": "2119717-DCWP",
       "License Type": "Premises",
       "Expiration Date": "11/27/2024",
@@ -364,7 +364,7 @@ data = [
       "ZIP Code": 10451,
       "Contact Phone": 2127367171,
       "Borough": "Bronx",
-      "Details": "Vehicle Capacity: 52; Bicycle Capacity: 5",
+      "Details": "52 Spots, $6/hr",
       "Community Board": 201,
       "Council District": 8,
       "BIN": 2129675,
@@ -372,8 +372,8 @@ data = [
       "Census Tract (2010)": 51,
       "Latitude": 40.80918,
       "Longitude": -73.930523
-    },
-    {
+  },
+  {
       "License Number": "2105592-DCA",
       "License Type": "Premises",
       "Expiration Date": "1/31/2023",
@@ -386,7 +386,7 @@ data = [
       "ZIP Code": 10451,
       "Contact Phone": 7186180276,
       "Borough": "Bronx",
-      "Details": "Vehicle Capacity: 62; Bicycle Capacity: 6",
+      "Details": "62 Spots, $5/hr",
       "Community Board": 201,
       "Council District": 8,
       "BIN": 2127297,
@@ -394,8 +394,8 @@ data = [
       "Census Tract (2010)": 51,
       "Latitude": 40.81568,
       "Longitude": -73.924935
-    },
-    {
+  },
+  {
       "License Number": "2056770-DCA",
       "License Type": "Premises",
       "Expiration Date": "3/31/2025",
@@ -408,7 +408,7 @@ data = [
       "ZIP Code": 10463,
       "Contact Phone": 2125025490,
       "Borough": "Bronx",
-      "Details": "Vehicle Capacity: 189; Bicycle Capacity: 19",
+      "Details": "18 Spots, $12/hr",
       "Community Board": 208,
       "Council District": 11,
       "BIN": 2083245,
@@ -416,8 +416,8 @@ data = [
       "Census Tract (2010)": 29302,
       "Latitude": 40.87716,
       "Longitude": -73.917861
-    },
-    {
+  },
+  {
       "License Number": "2082619-DCA",
       "License Type": "Premises",
       "Expiration Date": "3/31/2023",
@@ -430,7 +430,7 @@ data = [
       "ZIP Code": 10454,
       "Contact Phone": 9174705093,
       "Borough": "Bronx",
-      "Details": "Vehicle Capacity: 110; Bicycle Capacity: 11",
+      "Details": "11 Spots, $7/hr",
       "Community Board": 201,
       "Council District": 8,
       "BIN": 2117112,
@@ -438,8 +438,8 @@ data = [
       "Census Tract (2010)": 19,
       "Latitude": 40.80602,
       "Longitude": -73.927612
-    },
-    {
+  },
+  {
       "License Number": "2109439-DCA",
       "License Type": "Premises",
       "Expiration Date": "3/8/2023",
@@ -452,7 +452,7 @@ data = [
       "ZIP Code": 10453,
       "Contact Phone": 3476175862,
       "Borough": "Bronx",
-      "Details": "Vehicle Capacity: 40; Bicycle Capacity: 0",
+      "Details": "40 Spots, $6/hr",
       "Community Board": 205,
       "Council District": 14,
       "BIN": 2128390,
@@ -460,8 +460,8 @@ data = [
       "Census Tract (2010)": 23501,
       "Latitude": 40.85209,
       "Longitude": -73.905403
-    },
-    {
+  },
+  {
       "License Number": "2110333-DCA",
       "License Type": "Premises",
       "Expiration Date": "1/2/2023",
@@ -474,7 +474,7 @@ data = [
       "ZIP Code": 10457,
       "Contact Phone": 7186180276,
       "Borough": "Bronx",
-      "Details": "Vehicle Capacity: 31; Bicycle Capacity: 0",
+      "Details": "31 Spots, $8/hr",
       "Community Board": 206,
       "Council District": 15,
       "BIN": 2128726,
@@ -482,8 +482,8 @@ data = [
       "Census Tract (2010)": 395,
       "Latitude": 40.84621,
       "Longitude": -73.897377
-    },
-    {
+  },
+  {
       "License Number": "2075359-DCA",
       "License Type": "Premises",
       "Expiration Date": "3/31/2025",
@@ -496,7 +496,7 @@ data = [
       "ZIP Code": 10462,
       "Contact Phone": 2123217542,
       "Borough": "Bronx",
-      "Details": "Vehicle Capacity: 751; Bicycle Capacity: 26",
+      "Details": "75 Spots, $7/hr",
       "Community Board": 209,
       "Council District": 18,
       "BIN": 2090366,
@@ -504,8 +504,8 @@ data = [
       "Census Tract (2010)": 21602,
       "Latitude": 40.83791,
       "Longitude": -73.863057
-    },
-    {
+  },
+  {
       "License Number": "2075363-DCA",
       "License Type": "Premises",
       "Expiration Date": "3/31/2025",
@@ -518,7 +518,7 @@ data = [
       "ZIP Code": 10462,
       "Contact Phone": 2123217542,
       "Borough": "Bronx",
-      "Details": "Vehicle Capacity: 515; Bicycle Capacity: 23",
+      "Details": "51 Spots, $9/hr",
       "Community Board": 209,
       "Council District": 18,
       "BIN": 2033973,
@@ -526,8 +526,8 @@ data = [
       "Census Tract (2010)": 21002,
       "Latitude": 40.83624,
       "Longitude": -73.856335
-    },
-    {
+  },
+  {
       "License Number": "2096460-DCA",
       "License Type": "Premises",
       "Expiration Date": "3/31/2023",
@@ -540,7 +540,7 @@ data = [
       "ZIP Code": 10456,
       "Contact Phone": 3472207660,
       "Borough": "Bronx",
-      "Details": "Vehicle Capacity: 74; Bicycle Capacity: 7",
+      "Details": "74 Spots, $8/hr",
       "Community Board": 201,
       "Council District": 17,
       "BIN": 2117695,
@@ -548,8 +548,8 @@ data = [
       "Census Tract (2010)": 75,
       "Latitude": 40.82018,
       "Longitude": -73.910261
-    },
-    {
+  },
+  {
       "License Number": "2064021-DCA",
       "License Type": "Premises",
       "Expiration Date": "3/31/2023",
@@ -562,7 +562,7 @@ data = [
       "ZIP Code": 10458,
       "Contact Phone": 9174705093,
       "Borough": "Bronx",
-      "Details": "Vehicle Capacity: 100; Bicycle Capacity: 10",
+      "Details": "10 Spots, $5/hr",
       "Community Board": 205,
       "Council District": 15,
       "BIN": 2013597,
@@ -570,8 +570,8 @@ data = [
       "Census Tract (2010)": 23702,
       "Latitude": 40.86014,
       "Longitude": -73.89746
-    },
-    {
+  },
+  {
       "License Number": "2085374-DCA",
       "License Type": "Premises",
       "Expiration Date": "3/31/2023",
@@ -584,7 +584,7 @@ data = [
       "ZIP Code": 10463,
       "Contact Phone": 9174705093,
       "Borough": "Bronx",
-      "Details": "Vehicle Capacity: 80; Bicycle Capacity: 8",
+      "Details": "80 Spots, $12/hr",
       "Community Board": 208,
       "Council District": 11,
       "BIN": 2116011,
@@ -592,8 +592,8 @@ data = [
       "Census Tract (2010)": 283,
       "Latitude": 40.88476,
       "Longitude": -73.898735
-    },
-    {
+  },
+  {
       "License Number": "0831034-DCA",
       "License Type": "Premises",
       "Expiration Date": "3/31/2023",
@@ -606,7 +606,7 @@ data = [
       "ZIP Code": 10463,
       "Contact Phone": "718-543-5219",
       "Borough": "Bronx",
-      "Details": "Vehicle Capacity: 36; Bicycle Capacity: 0",
+      "Details": "36 Spots, $6/hr",
       "Community Board": 208,
       "Council District": 11,
       "BIN": 2084110,
@@ -614,8 +614,8 @@ data = [
       "Census Tract (2010)": 297,
       "Latitude": 40.88424,
       "Longitude": -73.910428
-    },
-    {
+  },
+  {
       "License Number": "2051479-DCA",
       "License Type": "Premises",
       "Expiration Date": "3/31/2023",
@@ -628,7 +628,7 @@ data = [
       "ZIP Code": 10467,
       "Contact Phone": 3478663357,
       "Borough": "Bronx",
-      "Details": "Vehicle Capacity: 100; Bicycle Capacity: 10",
+      "Details": "11 Spots, $6/hr",
       "Community Board": 212,
       "Council District": 11,
       "BIN": 2128358,
@@ -636,5 +636,5 @@ data = [
       "Census Tract (2010)": 435,
       "Latitude": 40.88085,
       "Longitude": -73.87065
-    }
-  ]
+  }
+]
