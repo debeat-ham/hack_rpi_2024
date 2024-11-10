@@ -14,7 +14,6 @@
     <h2>Login</h2>
     <input type="email" placeholder="email" id="userEmail">
     <input type="password" placeholder="password" id="userPassword">  <br><br>
-    <button id="signUpButton">Sign Up</button>
     <button id="signInButton">Sign In</button>
 </div>
 
@@ -76,7 +75,6 @@
                 const user = userCredential.user;
                 console.log(user);
                 alert("Your account has been created!");
-                window.location.href = "signup-app/testlogin.html";
             })
             .catch((error) => {
                 const errorCode = error.code;
@@ -92,14 +90,12 @@
             .then((userCredential) => {
                 const user = userCredential.user;
                 alert("You have signed in successfully!");
-                signOut(auth);
-                window.location.href = "about.html";
             })
             .catch((error) => {
                 const errorCode = error.code;
                 const errorMessage = error.message;
                 console.log(errorCode + errorMessage)
-        })
+            })
     }
 
     const checkAuthState = async() => {
