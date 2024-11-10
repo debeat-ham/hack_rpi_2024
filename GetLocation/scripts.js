@@ -45,11 +45,11 @@ function findClosest(userLat, userLng) {
         currentGarage.capacity = garageCapacity;
         currentGarage.cost = garageCost;
 
-        console.log("Closest Garage Name: " + currentGarage.name);
+        console.log("Closest Garage Name: " + currentGarage.name); 
         console.log("Address: " + currentGarage.address);
         console.log("Distance: " + currentGarage.distanceFromUser + " miles");
         console.log("Capacity: " + currentGarage.capacity + " spaces");
-        console.log("Cost: $" + currentGarage.cost + "per hour")
+        console.log("Cost: $" + currentGarage.cost + " per hour")
         closest_five.push(currentGarage);
     }
 
