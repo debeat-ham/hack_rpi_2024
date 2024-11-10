@@ -60,14 +60,19 @@
     </div>
 
     <script>
-        // Example JavaScript for dynamic user data (can be replaced with actual data)
-        const userData = {
-            username: 'JohnDoe',
-            location: 'Brooklyn, NY'
-        };
-        document.getElementById('username').textContent = userData.username;
-        document.getElementById('profileUsername').textContent = userData.username;
-        document.getElementById('userLocation').textContent = userData.location;
+        // Example JavaScript for dynamic user data
+        // Retrieve the user data from localStorage (after login)
+        const userData = JSON.parse(localStorage.getItem('userData'));
+
+        if (userData && userData.username) {
+            // Update the profile page with the username from localStorage
+            document.getElementById('username').textContent = userData.username;
+            document.getElementById('profileUsername').textContent = userData.username;
+        } else {
+            // If no username is stored, default to "User"
+            document.getElementById('username').textContent = 'User';
+            document.getElementById('profileUsername').textContent = 'Username';
+        }
 
         function initMap() {
             const userLocation = { lat: 40.730610, lng: -73.935242 }; // Example location
