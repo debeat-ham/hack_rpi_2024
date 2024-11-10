@@ -32,21 +32,22 @@
                 const data = await response.json();
 
                 if (data.status === "OK" && data.results.length > 0) {
+                    //Get lat and long from google api, and use that to compute the nearest garage
+
                     const { lat, lng } = data.results[0].geometry.location;
-                    const {closestBusiness, address, minDistance} = findClosest(lat, lng);
-                    const distanceFromNYC = calculateDistance(lat, lng, 40.712728, -74.006015).toPrecision(4); // Correct function call
+                    const {closestGarageName, address, minDistance} = findClosest(lat, lng);
+
                     coordinatesData = `Address: ${address}\nLatitude: ${lat}\nLongitude: ${lng}`;
+                    
                     document.getElementById('output').innerHTML = `
                         <p>Coordinates:</p>
                         <p><strong>Latitude:</strong> ${lat}</p>
                         <p><strong>Longitude:</strong> ${lng}</p>
-                        <p><strong>Closest Parking Garage:</strong> ${closestBusiness}, located ${minDistance} miles away at ${address},   </p>
+                        <p><strong>Closest Parking Garage:</strong> ${closestGarageName}, located ${minDistance} miles away at ${address},   </p>
                     `;
                     // Show the download button
                     document.getElementById('downloadBtn').style.display = 'block';
 
-                    // Call the function to find the closest business
-                    findClosest(lat, lng);
                 } else {
                     document.getElementById('output').innerHTML = "<p style='color: red;'>Coordinates not found. Please check the address.</p>";
                 }
@@ -141,10 +142,11 @@
             ];
 
             var minDistance = Infinity; // Set to a large value initially
-            var closestBusiness = null; // Store closest business info
+            var closestGarage = null; // Store closest business info
 
-            // Loop through each object in the array
+            // Loop through each object in the database
             for (var i = 0; i < arr.length; ++i) {
+                //Loop through the data for that specific object
                 var obj = arr[i];
 
                 // Check if the object has valid latitude and longitude
@@ -158,20 +160,21 @@
                     // If the calculated distance is less than the minimum, update the closest business
                     if (dist < minDistance) {
                         minDistance = dist;
-                        closestBusiness = obj;
+                        closestGarage = obj;
                     }
                 }
             }
 
-            if (closestBusiness) {
-                var address = closestBusiness["Building Number"] + " " + closestBusiness["Street1"] + " " + closestBusiness["City"] + " " + closestBusiness["State"] + " " + closestBusiness["ZIP Code"];
-                var closestBusinessName = closestBusiness["Business Name"];
-                console.log("Closest business name: " + closestBusinessName);
+            //If we have a closest business, format the data for that object
+            if (closestGarage) {
+                var address = closestGarage["Building Number"] + " " + closestGarage.Street1 + " " + closestGarage.City + " " + closestGarage.State + " " + closestGarage["ZIP Code"];
+                var closestGarageName = closestGarage["Business Name"];
+                console.log("Closest business name: " + closestGarageName);
                 console.log("Address: " + address);
                 console.log("Distance: " + minDistance + " miles");
-                return {closestBusinessName, address, minDistance};
+                return {closestGarageName, address, minDistance: minDistance.toFixed(2)};
             } else {
-                console.log("No valid businesses found with coordinates.");
+                console.log("No valid garages found nearby.");
             }
         }
 
