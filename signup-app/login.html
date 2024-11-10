@@ -30,20 +30,21 @@
             const username = document.getElementById('username').value;
             const password = document.getElementById('password').value;
 
-            // Simple login validation (you can replace this with actual authentication logic)
-            if (username && password) {
-                const userData = {
-                    username: username,
-                    password: password // Note: In a real app, never store passwords this way!
-                };
+            // Retrieve stored user data from localStorage
+            const storedData = localStorage.getItem('userData');
+            if (storedData) {
+                const userData = JSON.parse(storedData);
 
-                // Save the user data to localStorage
-                localStorage.setItem('userData', JSON.stringify(userData));
-                
-                alert('Login successful!');
-                window.location.href = 'profile.html'; // Redirect to profile page after successful login
+                // Validate entered credentials against stored data
+                if (username === userData.username && password === userData.password) {
+                    // Login successful
+                    alert('Login successful!');
+                    window.location.href = 'profile.html'; // Redirect to profile page
+                } else {
+                    alert('Invalid username or password. Please try again.');
+                }
             } else {
-                alert('Login failed. Please check your credentials.');
+                alert('No user data found. Please sign up first.');
             }
         }
     </script>
