@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Address to Coordinates</title>
     <link rel="stylesheet" href="styles/main.css">
+
+    <script src="data.js"></script> 
+    <script src = "scripts.js"></script>
 </head>
 
 <body>
@@ -35,7 +38,7 @@
                     //Get lat and long from google api, and use that to compute the nearest garage
 
                     const { lat, lng } = data.results[0].geometry.location;
-                    const {closestGarageName, address, minDistance} = findClosest(lat, lng);
+                    var closest_five = findClosest(lat, lng);
 
                     coordinatesData = `Address: ${address}\nLatitude: ${lat}\nLongitude: ${lng}`;
                     
@@ -43,7 +46,13 @@
                         <p>Coordinates:</p>
                         <p><strong>Latitude:</strong> ${lat}</p>
                         <p><strong>Longitude:</strong> ${lng}</p>
-                        <p><strong>Closest Parking Garage:</strong> ${closestGarageName}, located ${minDistance} miles away at ${address},   </p>
+                        <p><strong>Closest Parking Garages:</strong><br>
+                            ${closest_five[0].name}, located ${closest_five[0].distanceFromUser} miles away at ${closest_five[0].address}<br>  
+                            ${closest_five[1].name}, located ${closest_five[1].distanceFromUser} miles away at ${closest_five[1].address}<br>  
+                            ${closest_five[2].name}, located ${closest_five[2].distanceFromUser} miles away at ${closest_five[2].address}<br>  
+                            ${closest_five[3].name}, located ${closest_five[3].distanceFromUser} miles away at ${closest_five[3].address}<br>  
+                            ${closest_five[4].name}, located ${closest_five[4].distanceFromUser} miles away at ${closest_five[4].address}<br>  
+                        </p>
                     `;
                     // Show the download button
                     document.getElementById('downloadBtn').style.display = 'block';
