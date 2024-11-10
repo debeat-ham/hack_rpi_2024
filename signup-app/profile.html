@@ -51,46 +51,27 @@
                 <a href="#">Activity</a>
             </div>
         </div>
-
-        <!-- Right Section: Additional Content (Map/Other Info) -->
-        <div class="home-right">
-            <h3>Map</h3>
-            <div id="map"></div>
-        </div>
     </div>
 
     <script>
-        // Example JavaScript for dynamic user data
-        // Retrieve the user data from localStorage (after login)
+        // Retrieve the user data from localStorage
         const userData = JSON.parse(localStorage.getItem('userData'));
 
         if (userData && userData.username) {
             // Update the profile page with the username from localStorage
             document.getElementById('username').textContent = userData.username;
             document.getElementById('profileUsername').textContent = userData.username;
+
+            // If user data contains location info, display it
+            if (userData.location) {
+                document.getElementById('userLocation').textContent = userData.location;
+            }
         } else {
             // If no username is stored, default to "User"
             document.getElementById('username').textContent = 'User';
             document.getElementById('profileUsername').textContent = 'Username';
+            document.getElementById('userLocation').textContent = 'Unknown location';
         }
-
-        function initMap() {
-            const userLocation = { lat: 40.730610, lng: -73.935242 }; // Example location
-            const map = new google.maps.Map(document.getElementById('map'), {
-                zoom: 14,
-                center: userLocation,
-            });
-            const marker = new google.maps.Marker({
-                position: userLocation,
-                map: map,
-                title: "Your Location",
-            });
-        }
-    </script>
-
-    <!-- Google Maps API Script with Places Library -->
-    <script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDaFXlaMKGJPNDUme7clG5_7JRqthjsZe8&libraries=places&callback=initMap">
     </script>
 </body>
 </html>
