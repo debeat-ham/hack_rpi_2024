@@ -1,21 +1,32 @@
-# hack_rpi_2024
-Project for HackRPI 2024 competition
+# HackRPI 2024 Project
+### Contributors:  Ryan Armes, Cooper Kelly, Temitayo Oladeji, Cori DeBeatham
 
-Project Name:
-Data Source: https://nycopendata.socrata.com/w/5bhr-pjxt/25te-f2tw?cur=_W5UT2uwPYu&from=5A1b5dAfjwW
-Idea: Parking Garage Capacity Website
-Uses: 
-    - Help city residents find places to park.
-    - Help event organizers provide real-time information for best parking locations
-    - 
 
-Interface:
-    Hosts:
-        - Cities can add parking locations, and fill out information like address, cost, total capacity, and any other details.
-        - Smaller businesses can manually set the count (What we will try to accomplish). 
-        - Larger businesses or actual parking garages can use sensors to provide data to the website.
-    Users:
-        - Users can view nearby parking-locations and see the information set by hosts.
+**Project Name**: Spot Parking Garage Locator
+
+**Data Source:** https://nycopendata.socrata.com/w/5bhr-pjxt/25te-f2tw?cur=_W5UT2uwPYufrom=5A1b5dAfjwW
+
+### Technologies Used
+* Javascript
+* HTML
+* CSS
+* Google Geoencoding API
+* GoogleMaps JavaScript API 
+
+
+**Primary Objective**
+* Help city residents find affordabble places to park.
+* Help event organizers provide real-time information for best parking locations
+
+
+**Instructions**
+
+* Click sign in and create an account if needed.
+* After signing in, you will be redirected to the main locator.
+* Enter your address and use the slider to manage your budget.
+* Click search to find the 5 closest garages fitting your budget in your area.
+* Click on the markers on the map to see which garage from the list is located there.
+
 
 
 
