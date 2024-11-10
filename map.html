@@ -25,7 +25,7 @@
     /* Left Panel with List */
     #location-list {
       width: 50%;
-      padding: 32px;
+      padding: 37px;
       overflow-y: auto;
       box-sizing: border-box;
     }
@@ -37,7 +37,8 @@
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
       text-align: center;
       font-size: 15px;
-      margin-bottom: 29 px;
+      margin-bottom: 25px;
+      line-height: 1.5;
     }
 
     /* Right Panel with Map */
@@ -109,6 +110,27 @@
       margin-right: 5px;
       accent-color: #ff7f0e; /* Orange color */
     }
+
+    .top-nav {
+    position: fixed;
+    top: 35px;
+    right: 20px;
+    font-size: 16px;
+    font-family: Arial, sans-serif;
+    z-index: 10; /* Ensures the link stays above other elements */
+  }
+  
+  .top-nav a {
+    color: Black;
+    text-decoration: none;
+    margin: 0 10px;
+    font-weight: bold;
+    transition: color 0.3s ease;
+  }
+  
+  .top-nav a:hover {
+    color: #ff7f0e; /* Light orange color when hovered */
+  }
   </style>
 </head>
 <body>
@@ -119,7 +141,9 @@
       <input type="range" id="maxPrice" min="5" max="12" value="12" step="1">
       <span id="priceValue">$12</span>
     </div>
-    <button id="signUpButton">Search</button>
+    <div class="top-nav">
+      <a href="index.html">Home</a> | <a href="about.html">About</a>
+    </div>
   </div>
 
   <!-- Flex container for location list and map -->
@@ -178,9 +202,12 @@
         const distance = calculateDistance(Center.lat, Center.lng, location.Latitude, location.Longitude);
 
         // Parse the price from the "Details" field and filter out locations above the max price
-        const locationPrice = parseInt(location["Price"], 10);
+        const details = location.Details;
+        var detailsArray = location.Details.split(' ');
+        var cost = detailsArray[2];
+        const locationPrice = cost.substring(1, cost.search('/'));
         if (locationPrice > maxPrice) {
-          continue;
+          continue;  // Skip locations that exceed the max price
         }
 
         if (displayedCount < 5) {
