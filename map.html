@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Parking Locations in the Bronx</title>
+  <script src="./data.js"></script>
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC-Yvj8rdYoGBMNcJWB4pLeGQss0aWKq2A"></script>
   <style>
     #map {
@@ -13,74 +14,82 @@
   </style>
 </head>
 <body>
+<div style="width: 100%;">
+  <input type="text" id="address" name="address" required placeholder="Type address here...">
+  <button id="signUpButton">Submit</button>
   <div id="map"></div>
 
   <script>
+
+    const signUpButton = document.querySelector("#signUpButton");
+    var arr = data;
     function initMap() {
+      const address = document.getElementById('address').value;
+      const apiKey = 'AIzaSyDaFXlaMKGJPNDUme7clG5_7JRqthjsZe8';
+      var Center = { lat: 40.837048, lng: -73.865433 }; // Example coordinates
+      try {
+        const response = fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURIComponent(address)}&key=${apiKey}`);
+        const data = response.json();
+
+        if (data.status === "OK" && data.results.length > 0) {
+          //Get lat and long from google api, and use that to compute the nearest garage
+
+          Center = data.results[0].geometry.location;
+
+          coordinatesData = `Address: ${address}\nLatitude: ${lat}\nLongitude: ${lng}`;
+        }
+      } catch (error) {
+
+      }
       // Define the initial center location (e.g., a central spot in the Bronx)
-      const bronxCenter = { lat: 40.837048, lng: -73.865433 }; // Example coordinates
+
 
       // Initialize the map centered on the Bronx
       const map = new google.maps.Map(document.getElementById("map"), {
         zoom: 13,
-        center: bronxCenter
+        center: Center
       });
 
       // Array of parking lot locations with their info
-      const parkingLocations = [
-        { "lat": 40.839968, "lng": -73.864474, "info": "GMH PARK INC: 94 spots, $9/hr" },
-        { "lat": 40.8634, "lng": -73.897679, "info": "MP CRESTON LLC: 66 spots, $7/hr" },
-        { "lat": 40.839968, "lng": -73.864474, "info": "RIVERBAY CORPORATION: 1361 spots, $12/hr" },
-        { "lat": 40.85209, "lng": -73.905403, "info": "II IN-LOT PARKING CORP: 40 spots, $8/hr" },
-        { "lat": 40.81434, "lng": -73.917762, "info": "DANAE MARRERO: 31 spots, $5/hr" },
-        { "lat": 40.81481, "lng": -73.925145, "info": "786 PARKING 1 CORP: 68 spots, $6/hr" },
-        { "lat": 40.8503, "lng": -73.917327, "info": "SAN MIGUEL PARK CORP: 125 spots, $7/hr" },
-        { "lat": 40.86449, "lng": -73.829741, "info": "PARKING SYSTEMS PLUS INC: 998 spots, $10/hr" },
-        { "lat": 40.85123, "lng": -73.913306, "info": "1840 PARKING LOT L.L.C.: No capacity available, $8/hr" },
-        { "lat": 40.850911, "lng": -73.927849, "info": "W 183 ST. PARKING INC.: 54 spots, $8/hr" },
-        { "lat": 40.839968, "lng": -73.864474, "info": "HGI PARKING: 94 spots, $9/hr" },
-        { "lat": 40.85901, "lng": -73.89934, "info": "UNIVERSAL PARKING LLC: 60 spots, $9/hr" },
-        { "lat": 40.85901, "lng": -73.89934, "info": "UNIVERSAL PARKING LLC: 60 spots, $7/hr" },
-        { "lat": 40.8121, "lng": -73.92656, "info": "AARON PARKING CORP: 300 spots, $6/hr" },
-        { "lat": 40.842923, "lng": -73.865206, "info": "DAMARE, KEVIN: 103 spots, $5/hr" },
-        { "lat": 40.82266, "lng": -73.907772, "info": "STADIUM PARKING LLC: 5000 spots, $15/hr" },
-        { "lat": 40.861241, "lng": -73.899288, "info": "BIG APPLE PARKING LLC: 125 spots, $10/hr" },
-        { "lat": 40.8121, "lng": -73.92656, "info": "BCE PARKING LLC: 300 spots, $6/hr" },
-        { "lat": 40.810851, "lng": -73.926124, "info": "UNIVERSAL PARKING LLC: 120 spots, $7/hr" },
-        { "lat": 40.81802, "lng": -73.9146, "info": "CHERAN, CHRISTOPHER: 72 spots, $5/hr" },
-        { "lat": 40.838959, "lng": -73.867529, "info": "RIVERSIDE GARAGE, INC.: 44 spots, $9/hr" },
-        { "lat": 40.842923, "lng": -73.865206, "info": "PARKCHESTER GARAGE, INC.: 103 spots, $8/hr" },
-        { "lat": 40.861241, "lng": -73.899288, "info": "CAPE PARKING CORP: 125 spots, $10/hr" },
-        { "lat": 40.863203, "lng": -73.89156, "info": "UNIVERSAL PARKING LLC: 33 spots, $9/hr" },
-        { "lat": 40.863203, "lng": -73.89156, "info": "RIDGE PARKING, LLC: 33 spots, $7/hr" },
-        { "lat": 40.835895, "lng": -73.91055, "info": "HARLEM RIVER YARD VENTURE INC: 215 spots, $10/hr" },
-        { "lat": 40.863203, "lng": -73.89156, "info": "TONY PARKING LLC: 33 spots, $8/hr" },
-        { "lat": 40.819909, "lng": -73.92424, "info": "MORGAN MARIN, JR.: 120 spots, $6/hr" },
-        { "lat": 40.839968, "lng": -73.864474, "info": "GMH PARK INC: 94 spots, $9/hr" },
-        { "lat": 40.817028, "lng": -73.921593, "info": "RODMAN GARAGE LLC: 42 spots, $7/hr" }
-      ];
+      arr.sort(function(a,b){return calculateDistance(Center.lat, Center.lng, a.Latitude, a.Longitude) - calculateDistance(Center.lat, Center.lng, b.Latitude, b.Longitude)});
 
       // Loop through the parking locations to create markers with info windows
-      parkingLocations.forEach((location) => {
+      for(var i = 0; i<5; i++) {
         const marker = new google.maps.Marker({
-          position: { lat: location.lat, lng: location.lng },
+          position: { lat: arr[i]["Latitude"], lng: arr[i]["Longitude"] },
           map: map
         });
 
         // Info window for each marker
         const infoWindow = new google.maps.InfoWindow({
-          content: location.info
+          content: arr[i]["Business Name"] +" | "+ arr[i]["Details"]
         });
 
         // Show info window on marker click
         marker.addListener("click", () => {
           infoWindow.open(map, marker);
         });
-      });
+      }
+    }
+
+    function calculateDistance(lat1, lon1, lat2, lon2) {
+      var R = 3958.8; // Radius of the Earth in miles
+      var dLat = (lat2 - lat1) * Math.PI / 180;
+      var dLon = (lon2 - lon1) * Math.PI / 180;
+
+      var a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+              Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
+              Math.sin(dLon / 2) * Math.sin(dLon / 2);
+
+      var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+
+      var distance = R * c; // Distance in miles
+      return distance;
     }
 
     // Load the map after the page loads
-    window.onload = initMap;
+
+    signUpButton.addEventListener('click', initMap);
   </script>
 </body>
 </html>

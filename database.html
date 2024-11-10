@@ -104,11 +104,11 @@
 	function FindData() {
 		const dbref = ref(db);
 
-		get(child(dbref, "People/" + findID.value))
+		get(child(dbref, "PG/" + findID.value))
 				.then((snapshot)=>{
 					if(snapshot.exists()){
-						findName.innerHTML = "Name: " + snapshot.val().Name;
-						findAge.innerHTML = "Age: " + snapshot.val().Age;
+						findName.innerHTML = "Name: " + snapshot.val().Latitude;
+						findAge.innerHTML = "Age: " + snapshot.val().Longitude;
 					} else {
 						alert("No data found");
 					}
