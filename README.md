@@ -4,7 +4,7 @@
 **Data Source - NYC Open Data:** https://nycopendata.socrata.com/w/5bhr-pjxt/25te-f2tw?cur=_W5UT2uwPYufrom=5A1b5dAfjwW
  ### Contributors 
 
-**Ryan Armes**
+**Ryan Ames**
  * Database Experimentation
  * API troubleshooting
  * Organization and Sorting of Project Files
