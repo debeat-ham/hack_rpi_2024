@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+        }
+        .header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            font-size: 24px;
+        }
+        .tabs {
+            display: flex;
+            justify-content: space-around;
+            background-color: #333;
+            padding: 10px 0;
+        }
+        .tabs a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            padding: 8px 16px;
+        }
+        .tabs a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+        .profile-info {
+            text-align: center;
+            padding: 20px;
+        }
+        #map {
+            height: 400px;
+            width: 100%;
+        }
+        .info {
+            margin-top: 20px;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header with User Name -->
+    <div class="header" id="usernameDisplay">Welcome, <span id="username"></span>!</div>
+
+    <!-- Tabs for Navigation -->
+    <div class="tabs">
+        <a href="#search">Search Locations</a>
+        <a href="#parking">Find Parking</a>
+    </div>
+
+    <!-- Profile Information -->
+    <div class="profile-info">
+        <h2>Your Profile</h2>
+        <p><strong>Username:</strong> <span id="profileUsername"></span></p>
+        <p><strong>Current Location:</strong> <span id="userLocation"></span></p>
+    </div>
+
+    <!-- Map Display -->
+    <div id="map"></div>
+
+    <!-- Script for Google Maps API and Geolocation -->
+    <script>
+        // Retrieve user data from localStorage
+        const userData = JSON.parse(localStorage.getItem('userData')); // Get the saved user data
+
+        // Check if user data exists
+        if (userData && userData.username) {
+            const username = userData.username;
+            document.getElementById("username").textContent = username; // Display the username in header
+            document.getElementById("profileUsername").textContent = username; // Display the username in profile section
+        } else {
+            alert('No user data found! Please login again.');
+            window.location.href = 'login.html'; // Redirect to login page if no user data is found
+        }
+
+        // Initialize and display map
+        function initMap() {
+            const bronx = { lat: 40.8448, lng: -73.8648 }; // Bronx coordinates (Default location)
+            const map = new google.maps.Map(document.getElementById("map"), {
+                zoom: 14,
+                center: bronx,
+            });
+
+            const infoWindow = new google.maps.InfoWindow();
+
+            // Set user's current location (For demo, we use Bronx coordinates)
+            const userLocation = bronx;
+            document.getElementById("userLocation").textContent = "Bronx, NY";
+
+            // Fetch nearby parking spots
+            fetchNearbyParking(map, infoWindow, userLocation);
+        }
+
+        // Fetch nearby parking locations
+        function fetchNearbyParking(map, infoWindow, location) {
+            const service = new google.maps.places.PlacesService(map);
+            service.nearbySearch(
+                {
+                    location: location,
+                    radius: 1500,
+                    type: ["parking"],
+                },
+                (results, status) => {
+                    if (status === google.maps.places.PlacesServiceStatus.OK && results) {
+                        results.forEach((place) => {
+                            const marker = new google.maps.Marker({
+                                map,
+                                position: place.geometry.location,
+                            });
+                            google.maps.event.addListener(marker, "click", () => {
+                                infoWindow.setContent(
+                                    `<strong>${place.name}</strong><br>${place.vicinity}`
+                                );
+                                infoWindow.open(map, marker);
+                            });
+                        });
+                    }
+                }
+            );
+        }
+    </script>
+
+    <!-- Google Maps API Script with Places Library -->
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDaFXlaMKGJPNDUme7clG5_7JRqthjsZe8&libraries=places&callback=initMap">
+    </script>
+</body>
+</html>

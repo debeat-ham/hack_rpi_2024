@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login </title>
+    <title>Login</title>
     <link rel="stylesheet" href="styles/main.css">
 </head>
 <body>
@@ -25,16 +25,23 @@
 
     <script>
         function handleLogin(event) {
-            event.preventDefault();
+            event.preventDefault(); // Prevent the form from submitting normally
+
             const username = document.getElementById('username').value;
             const password = document.getElementById('password').value;
 
-            // Get user data from localStorage
-            const userData = JSON.parse(localStorage.getItem('userData'));
+            // Simple login validation (you can replace this with actual authentication logic)
+            if (username && password) {
+                const userData = {
+                    username: username,
+                    password: password // Note: In a real app, never store passwords this way!
+                };
 
-            if (userData && userData.username === username && userData.password === password) {
+                // Save the user data to localStorage
+                localStorage.setItem('userData', JSON.stringify(userData));
+                
                 alert('Login successful!');
-                checkLocationPermission();
+                window.location.href = 'profile.html'; // Redirect to profile page after successful login
             } else {
                 alert('Login failed. Please check your credentials.');
             }
@@ -45,28 +52,18 @@
             if (localStorage.getItem('locationPermission') === 'granted') {
                 getLocation();
             } else {
-                window.location.href = 'terms.html'; // Redirect to terms page if location not granted
+                window.location.href = 'terms.html'; // Redirect to terms page if location permission not granted
             }
         }
 
         function getLocation() {
-            if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(
-                    function(position) {
-                        const lat = position.coords.latitude;
-                        const lon = position.coords.longitude;
-                        console.log("Coordinates: Latitude " + lat + ", Longitude " + lon);
+            // Static coordinates for the Bronx
+            const bronxLat = 40.8448;
+            const bronxLon = -73.8648;
+            console.log("Coordinates: Latitude " + bronxLat + ", Longitude " + bronxLon);
 
-                        // Convert coordinates to address using Google Geocoding API
-                        getAddressFromCoordinates(lat, lon);
-                    },
-                    function(error) {
-                        alert("Geolocation error: " + error.message);
-                    }
-                );
-            } else {
-                alert("Geolocation is not supported by this browser.");
-            }
+            // Convert static coordinates to address
+            getAddressFromCoordinates(bronxLat, bronxLon);
         }
 
         async function getAddressFromCoordinates(lat, lon) {

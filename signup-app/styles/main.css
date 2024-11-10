@@ -9,11 +9,11 @@
   --color-danger: hsl(0, 95%, 65%);
   --color-dark: hsl(252, 30%, 17%);
   --color-black: hsl(252, 30%, 10%);
-
   --border-radius: 2rem;
   --card-border-radius: 1rem;
   --btn-padding: 0.6rem 2rem;
   --card-padding: 1rem;
+  --transition-ease: 0.3s ease;
 }
 
 *,
@@ -31,67 +31,13 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  min-height: 100vh;
   overflow-x: hidden;
+  margin: 0;
 }
 
-/* Signup Container Styling */
-.signup-container {
-  background: var(--color-white);
-  padding: 2rem;
-  border-radius: var(--card-border-radius);
-  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
-  width: 100%;
-  max-width: 400px;
-  text-align: center;
-}
-
-.signup-container h1 {
-  color: var(--color-primary);
-  margin-bottom: 1.5rem;
-}
-
-.signup-form {
-  display: flex;
-  flex-direction: column;
-}
-
-.signup-form label {
-  margin-top: 1rem;
-  font-weight: bold;
-  color: var(--color-dark);
-}
-
-.signup-form input {
-  padding: 0.75rem;
-  margin-top: 0.5rem;
-  border-radius: var(--border-radius);
-  border: 1px solid var(--color-gray);
-  background: var(--color-light);
-  color: var(--color-dark);
-}
-
-.signup-form input:focus {
-  outline: none;
-  border-color: var(--color-primary);
-  box-shadow: 0px 0px 5px var(--color-primary);
-}
-
-.btn-primary {
-  background-color: var(--color-primary);
-  color: var(--color-white);
-  padding: var(--btn-padding);
-  border-radius: var(--border-radius);
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  margin-top: 1.5rem;
-}
-
-.btn-primary:hover {
-  background-color: var(--color-primary-dark);
-}
-
-/* Login Container Styling */
+/* Login and Signup Containers */
+.signup-container,
 .login-container {
   background: var(--color-white);
   padding: 2rem;
@@ -102,65 +48,59 @@ body {
   text-align: center;
 }
 
+.signup-container h1,
 .login-container h1 {
   color: var(--color-primary);
   margin-bottom: 1.5rem;
 }
 
-.login-container form {
+.signup-form,
+.login-form {
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
-.login-container label {
+.signup-form label,
+.login-form label {
   margin-top: 1rem;
   font-weight: bold;
   color: var(--color-dark);
 }
 
-.login-container input {
+input,
+button {
   padding: 0.75rem;
   margin-top: 0.5rem;
   border-radius: var(--border-radius);
   border: 1px solid var(--color-gray);
   background: var(--color-light);
   color: var(--color-dark);
+  width: 100%;
+  font-size: 1rem;
+  transition: all var(--transition-ease);
 }
 
-.login-container input:focus {
+input:focus,
+button:hover {
   outline: none;
   border-color: var(--color-primary);
   box-shadow: 0px 0px 5px var(--color-primary);
 }
 
-.login-container button {
+button {
   background-color: var(--color-primary);
   color: var(--color-white);
-  padding: var(--btn-padding);
-  border-radius: var(--border-radius);
   cursor: pointer;
-  transition: background-color 0.3s ease;
-  margin-top: 1.5rem;
   border: none;
+  transition: background-color var(--transition-ease);
 }
 
-.login-container button:hover {
+button:hover {
   background-color: var(--color-primary-dark);
 }
 
-.register-link {
-  display: block;
-  margin-top: 1rem;
-  font-size: 0.9em;
-  color: var(--color-primary);
-  text-decoration: none;
-}
-
-.register-link:hover {
-  text-decoration: underline;
-}
-
-/* Terms Container Styling */
+/* Terms Container */
 .terms-container {
   background: var(--color-white);
   padding: 2rem;
@@ -193,7 +133,7 @@ body {
   padding: 0.6rem 2rem;
   border-radius: var(--border-radius);
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background-color var(--transition-ease);
 }
 
 .btn-primary {
@@ -212,4 +152,96 @@ body {
 
 .btn-danger:hover {
   background-color: darkred;
+}
+
+/* Profile Page Styling */
+.profile-container {
+  background: var(--color-white);
+  padding: 2rem;
+  border-radius: var(--card-border-radius);
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.profile-header {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  padding: 20px;
+  width: 100%;
+  border-radius: var(--border-radius) var(--border-radius) 0 0;
+  text-align: center;
+  font-size: 28px;
+}
+
+.profile-info {
+  margin-top: 1.5rem;
+  font-size: 1.1rem;
+  color: var(--color-dark);
+}
+
+.profile-tabs {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  margin-top: 2rem;
+}
+
+.profile-tabs a {
+  color: var(--color-primary);
+  font-weight: bold;
+  text-decoration: none;
+  padding: 0.5rem;
+  border-radius: var(--border-radius);
+  transition: background-color var(--transition-ease), color var(--transition-ease);
+}
+
+.profile-tabs a:hover {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+}
+
+#map {
+  width: 100%;
+  height: 400px;
+  margin-top: 2rem;
+  border-radius: var(--border-radius);
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Fancy Hover Effects for Buttons */
+.btn-primary,
+.btn-danger {
+  transition: transform var(--transition-ease), background-color var(--transition-ease);
+}
+
+.btn-primary:hover,
+.btn-danger:hover {
+  transform: scale(1.05);
+  background-color: var(--color-primary-dark);
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  .container,
+  .profile-container {
+    max-width: 100%;
+    padding: 1.5rem;
+  }
+
+  .profile-tabs {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .profile-tabs a {
+    margin: 0.5rem 0;
+  }
+
+  #map {
+    height: 300px;
+  }
 }
