@@ -56,7 +56,7 @@ data = [
         "ZIP Code": 10475,
         "Contact Phone": 7183203391,
         "Borough": "Bronx",
-        "Details": "13 Spots, $6/hr",
+        "Details": "13 Spots, $5/hr",
         "Community Board": "",
         "Council District": "",
         "BIN": "",
