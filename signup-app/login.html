@@ -46,45 +46,6 @@
                 alert('Login failed. Please check your credentials.');
             }
         }
-
-        function checkLocationPermission() {
-            // Check if location permission has been granted
-            if (localStorage.getItem('locationPermission') === 'granted') {
-                getLocation();
-            } else {
-                window.location.href = 'terms.html'; // Redirect to terms page if location permission not granted
-            }
-        }
-
-        function getLocation() {
-            // Static coordinates for the Bronx
-            const bronxLat = 40.8448;
-            const bronxLon = -73.8648;
-            console.log("Coordinates: Latitude " + bronxLat + ", Longitude " + bronxLon);
-
-            // Convert static coordinates to address
-            getAddressFromCoordinates(bronxLat, bronxLon);
-        }
-
-        async function getAddressFromCoordinates(lat, lon) {
-            const apiKey = 'AIzaSyDaFXlaMKGJPNDUme7clG5_7JRqthjsZe8'; // Your API key
-            const url = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lon}&key=${apiKey}`;
-
-            try {
-                const response = await fetch(url);
-                const data = await response.json();
-
-                if (data.status === 'OK') {
-                    const address = data.results[0].formatted_address;
-                    console.log("Address: " + address);
-                    alert("Your address is: " + address);
-                } else {
-                    console.log("No address found.");
-                }
-            } catch (error) {
-                console.error("Error fetching the address:", error);
-            }
-        }
     </script>
 </body>
 </html>
