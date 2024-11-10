@@ -1,10 +1,29 @@
 # HackRPI 2024 Project
- **Contributors**:  Ryan Armes, Cooper Kelly, Temitayo Oladeji, Cori DeBeatham
-
-
 **Project Name**: Spot - Parking Garage Locator
 
 **Data Source - NYC Open Data:** https://nycopendata.socrata.com/w/5bhr-pjxt/25te-f2tw?cur=_W5UT2uwPYufrom=5A1b5dAfjwW
+ ### Contributors 
+
+**Ryan Armes**
+ * Database Experimentation
+ * API troubleshooting
+ * Organization and Sorting of Project Files
+
+ **Cooper Kelly**
+ * Use Garage Coordinates to Customize Map
+ * Landing Page
+ * About Us Page
+
+ **Temitayo Oladeji**
+ * Sign-in Page Design and Logic
+ * User-Registration Page Design and Logic
+ * Incorporate Geoencoding API
+
+ **Cori DeBeatham**
+ * Data Sourcing
+ * API Research and Distance Calculations
+ * Logo
+
 
 ### Technologies Used
 * Javascript
@@ -15,7 +34,7 @@
 
 
 ### Primary Objective
-The search for parking can cause major conjestion in big cities, especially when there are events like concerts or parades. Our goal is to help eliminate congestion by allowing users to see the closest garages with free spaces. By avoiding full garages and diverting their attention to garages with free space, this could help with decongestion.
+The search for parking can cause major conjestion in big cities, especially when there are events like concerts or parades. Our goal is to help eliminate congestion by allowing users to see the closest garages with free spaces. By avoiding full garages and diverting attention to garages with free space, this could help with decongestion.
 
 ### Challenges
 * Learning how to use an API.
