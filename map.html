@@ -59,6 +59,24 @@
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     }
 
+    /* Logo Section */
+    #logo-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      z-index: -10;
+      visibility: visible;
+      height: 100%;
+      width: 100%;
+      background-color: rgba(255, 255, 255, 0.8); /* Light overlay */
+    }
+
+    #logo-container img {
+      max-width: 300px; /* Adjust logo size */
+      max-height: 300px;
+    }
+
     /* Search Bar Container */
     #search-bar-container {
       display: flex;
@@ -155,12 +173,18 @@
     </div>
   </div>
 
+  <!-- Logo Container -->
+  <div id="logo-container">
+    <img src="logo.png" alt="Logo"> <!-- Replace with your logo image URL -->
+  </div>
+
   <script>
     const signUpButton = document.querySelector("#signUpButton");
     const locationList = document.getElementById("location-list");
     const mapContainer = document.getElementById("map-container");
     const maxPriceInput = document.getElementById("maxPrice");
     const priceValueDisplay = document.getElementById("priceValue");
+    const logoContainer = document.getElementById("logo-container");
     var arr = data;
 
     // Update price label as slider moves
@@ -191,6 +215,9 @@
         zoom: 13,
         center: Center
       });
+
+      // Hide the logo once the map is ready
+      logoContainer.style.visibility = 'hidden';
 
       // Filter and sort parking locations
       arr.sort((a, b) => calculateDistance(Center.lat, Center.lng, a.Latitude, a.Longitude) - calculateDistance(Center.lat, Center.lng, b.Latitude, b.Longitude));
@@ -229,7 +256,12 @@
           // Add the location to the list (without price)
           const locationItem = document.createElement("div");
           locationItem.classList.add("location-item");
-          locationItem.innerHTML = `<strong>${location["Business Name"]}</strong><br>${location["Details"]}<br>Distance: ${distance.toFixed(2)} miles`;
+          locationItem.innerHTML = `
+            <strong>${location["Business Name"]}</strong><br>
+            ${location["Address"]}<br>
+            ${location["Details"]}<br>
+            Distance: ${distance.toFixed(2)} miles
+          `;
           locationList.appendChild(locationItem);
 
           displayedCount++;
@@ -237,15 +269,21 @@
       }
     }
 
-    function calculateDistance(lat1, lon1, lat2, lon2) {
-      const R = 3958.8; // Radius of Earth in miles
-      const dLat = (lat2 - lat1) * Math.PI / 180;
-      const dLon = (lon2 - lon1) * Math.PI / 180;
-      const a = Math.sin(dLat / 2) * Math.sin(dLat / 2) + Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) * Math.sin(dLon / 2) * Math.sin(dLon / 2);
-      return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-    }
-
+    // Add event listener to Search button
     signUpButton.addEventListener("click", initMap);
+
+    // Function to calculate distance between two coordinates (Haversine formula)
+    function calculateDistance(lat1, lng1, lat2, lng2) {
+      const R = 3958.8; // Radius of the Earth in miles
+      const dLat = (lat2 - lat1) * Math.PI / 180;
+      const dLng = (lng2 - lng1) * Math.PI / 180;
+      const a =
+        Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+        Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
+        Math.sin(dLng / 2) * Math.sin(dLng / 2);
+      const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+      return R * c;
+    }
   </script>
 </body>
 </html>
